@@ -1,5 +1,7 @@
 import Car.Car;
-//Владимир, которому 21 год, живет в Казани, сейчас нигде не работает.
+import Flower.Flower;
+import Bouquet.Bouquet;
+
 public class Main {
     public static void main(String[] args) {
         Human maxim = new Human("Максим", "Минск", 35, null);
@@ -15,6 +17,35 @@ public class Main {
         System.out.println(anya);
         System.out.println(artem);
         System.out.println(maxim);
+        System.out.println();
+
+
+        Flower rose = new Flower("Rose", "Gollandiya", null, 35.59, 0);
+        Flower hrizantema = new Flower("Hrizanrema", null, null, 15.00, 5);
+        Flower pion = new Flower("Pion", "England", null, 69.9, 1);
+        Flower gupsofila = new Flower("Gupsofila", "Turcey", null, 19.5, 10);
+
+        rose.showInfo();
+        hrizantema.showInfo();
+        pion.showInfo();
+        gupsofila.showInfo();
+        System.out.println();
+
+
+        Flower[] flowers = new Flower[9];
+        flowers[0] = rose;
+        flowers[1] = rose;
+        flowers[2] = rose;
+        flowers[3] = gupsofila;
+        flowers[4] = hrizantema;
+        flowers[5] = hrizantema;
+        flowers[6] = hrizantema;
+        flowers[7] = hrizantema;
+        flowers[8] = hrizantema;
+        Bouquet b = new Bouquet(flowers);
+        System.out.println(b.getExpiryDays(flowers));
+        System.out.printf("%.2f", b.getCost(flowers));
+
 
         System.out.println();
         Car lada = new Car("Lada", "Grande", "2015", "России", "желтого", "1.7");
