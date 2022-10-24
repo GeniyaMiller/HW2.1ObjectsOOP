@@ -1,4 +1,4 @@
-import Car.Car;
+import Transport.Car;
 import Flower.Flower;
 import Bouquet.Bouquet;
 
@@ -48,11 +48,13 @@ public class Main {
 
 
         System.out.println();
-        Car lada = new Car("Lada", "Grande", "2015", "России", "желтого", "1.7");
-        Car audi = new Car(null, "A8", "2020", "Германии", "черный", "3.0");
-        Car bmw = new Car("BMW", "Z8", "2021", "Германии", "черный", "3.0");
-        Car kia = new Car("Kia", "Sportage 4", "2018", "Южной Корее", "красный", "2.4");
-        Car hyundai = new Car("Hyunday", "Avante", "2016", "Южной Корее", null, "1.6");
+
+
+        Car lada = new Car("Lada", "Grande", 2015, "России", "желтого", 1.7, "автомат", "седан", "A345AA345", 5, 1);
+        Car audi = new Car("Audi", "A8", 2020, "Германии", null, 3.0, "механическая", "кроссовер", "F687KK475", 0, 6);
+        Car bmw = new Car("BMW", "Z8", 2021, "Германии", "черный", 3.0, "автомат","минивен","H121AS123",3 , 0);
+        Car kia = new Car("Kia", "Sportage 4", 2018, "Южной Корее", "красный", 2.4, "автомат","седан","G985HJ345",2 , 1);
+        Car hyundai = new Car("Hyunday", "Avante", 2016, "Южной Корее", null, 1.6, "механическая", "кроссовер","G872LR855", 7 ,2);
 
         System.out.println(lada);
         System.out.println(audi);
