@@ -1,8 +1,10 @@
+import Transport.Bus;
 import Transport.Car;
 import Flower.Flower;
 import Bouquet.Bouquet;
 import Transport.Car.Key;
 import Transport.Car.Insurance;
+import Transport.Train;
 
 import java.time.LocalDate;
 
@@ -50,31 +52,46 @@ public class Main {
         System.out.println(b.getExpiryDays(flowers));
         System.out.printf("%.2f", b.getCost(flowers));
 
-
         System.out.println();
+        System.out.println();
+        System.out.println("AVTO");
 
 
-        Key key = new Key (true, true);
+        Key key = new Key(true, true);
 
-        Insurance insuranceAudi = new Insurance(LocalDate.of(2022,9,15), 12000, "948371653");
-        Insurance insuranceLada = new Insurance(LocalDate.of(2023,10,17), 12000, "7436r5362");
-        Insurance insuranceBmw = new Insurance(LocalDate.of(2023,3,1), 12000, "957364524");
-        Insurance insuranceKia = new Insurance(LocalDate.of(2023,1,7), 12000, "999666777");
-        Insurance insuranceHyundai = new Insurance(LocalDate.of(2022,9,3), 12000, "111222333");
+        Insurance insuranceAudi = new Insurance(LocalDate.of(2022, 9, 15), 12000, "948371653");
+        Insurance insuranceLada = new Insurance(LocalDate.of(2023, 10, 17), 12000, "7436r5362");
+        Insurance insuranceBmw = new Insurance(LocalDate.of(2023, 3, 1), 12000, "957364524");
+        Insurance insuranceKia = new Insurance(LocalDate.of(2023, 1, 7), 12000, "999666777");
+        Insurance insuranceHyundai = new Insurance(LocalDate.of(2022, 9, 3), 12000, "111222333");
 
-        Car audi = new Car("Audi", "A8", 2020, "Германия", "Зеленый", 3.0, "механическая", "кроссовер", "D444GD234", 5, 1, key, insuranceAudi);
-        Car lada = new Car("Lada", "Grande", 2015, "России", "желтого", 1.7, "автомат", "седан", "A345AA345", 5, 1, key, insuranceLada);
-        Car bmw = new Car("BMW", "Z8", 2021, "Германии", "черный", 3.0, "автомат","минивен","H121AS123",3 , 0, key, insuranceBmw);
-        Car kia = new Car("Kia", "Sportage 4", 2018, "Южной Корее", "красный", 2.4, "автомат","седан","G985HJ345",2 , 1, key, insuranceKia);
-        Car hyundai = new Car("Hyunday", "Avante", 2016, "Южной Корее", null, 1.6, "механическая", "кроссовер","G872LR855", 7 ,2, key, insuranceHyundai);
-        System.out.println(insuranceKia);
-
+        Car audi = new Car("Audi", "A8", 2020, "Германия", "Зеленый", 230, 3.0, "механическая", "кроссовер", "D444GD234", 5, 1, key, insuranceAudi);
+        Car lada = new Car("Lada", "Grande", 2015, "России", "желтого", 250, 1.7, "автомат", "седан", "A345AA345", 5, 1, key, insuranceLada);
+        Car bmw = new Car("BMW", "Z8", 2021, "Германии", "черный", 210, 3.0, "автомат", "минивен", "H121AS123", 3, 0, key, insuranceBmw);
+        Car kia = new Car("Kia", "Sportage 4", 2018, "Южной Корее", "красный", 240, 2.4, "автомат", "седан", "G985HJ345", 2, 1, key, insuranceKia);
+        Car hyundai = new Car("Hyunday", "Avante", 2016, "Южной Корее", null, 280, 1.6, "механическая", "кроссовер", "G872LR855", 7, 2, key, insuranceHyundai);
 
         System.out.println(audi);
         System.out.println(lada);
         System.out.println(bmw);
         System.out.println(kia);
         System.out.println(hyundai);
+        System.out.println();
+        System.out.println("TRAIN");
+
+        Train lastochka = new Train("Lastochka", "B-901", 2001, "Россия", null, 301, 3500, 0, "Белорусский вокзал", "Минск - Пассажирский", 11);
+        Train leningrad = new Train("Leningrad", "D-125", 2019, "Россия", null, 270, 1700, 0, "Ленинградский вокзал", "Ленинград - Пассажирский", 8);
+        System.out.println(lastochka);
+        System.out.println(leningrad);
+
+        Bus mers = new Bus("Mercedes", "M-45", 2010, "Germany", "red", 190);
+        Bus wv = new Bus("WV", "AM21", 2003, "Germany", "blue", 180);
+        Bus opel = new Bus("Opel", "S8", 2020, "Korea", "black", 210);
+        System.out.println(mers);
+        System.out.println(wv);
+        System.out.println(opel);
+
 
     }
+
 }

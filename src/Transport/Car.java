@@ -2,7 +2,7 @@ package Transport;
 
 import java.time.LocalDate;
 
-public class Car {
+public  class Car extends Transport {
     public static class Key {
         private boolean remoteEngineStart;
         private boolean keylessAccess;
@@ -21,8 +21,8 @@ public class Car {
         @Override
         public String toString() {
             return "Key{" +
-                    "remoteEngineStart=" + remoteEngineStart +
-                    ", keylessAccess=" + keylessAccess +
+                    " " + remoteEngineStart +
+                    ",  " + keylessAccess +
                     '}';
         }
     }
@@ -35,9 +35,9 @@ public class Car {
         @Override
         public String toString() {
             return "Insurance{" +
-                    "validity=" + validity +
-                    ", cost=" + cost +
-                    ", number='" + number + '\'' +
+                    " " + validity +
+                    ", " + cost +
+                    ", " + number +
                     '}';
         }
 
@@ -73,12 +73,8 @@ public class Car {
         }
     }
 
-    private String brand;
-    private String model;
     private double engineVolume;
-    private String color;
-    private Integer productionYear;
-    private String productionCountry;
+
     private String boxOfTransfers;
     private String bodyType;
     private String registrationNumber;
@@ -87,32 +83,10 @@ public class Car {
 
     private Key key;
     private Insurance insurance;
-    public Car(String brand, String model, Integer productionYear, String productionCountry, String color,
+    public Car(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed,
                double engineVolume, String boxOfTransfers, String bodyType, String registrationNumber,
                int numberOfSeats, int wheels, Key key, Insurance insurance) {
-        if (brand == null || brand.isBlank() || brand.isEmpty()) {
-            this.brand = "default";
-            return;
-        }
-        this.brand = brand;
-
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            this.model = "default";
-            return;
-        }
-        this.model = model;
-
-        if (productionYear <= 0) {
-            this.productionYear = 2000;
-            return;
-        }
-        this.productionYear = productionYear;
-
-        if (productionCountry == null || productionCountry.isBlank() || productionCountry.isEmpty()) {
-            this.productionCountry = "default";
-            return;
-        }
-        this.productionCountry = productionCountry;
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
 
         if (bodyType == null || bodyType.isEmpty() || bodyType.isBlank()) {
             this.bodyType = "default";
@@ -126,7 +100,6 @@ public class Car {
         }
         this.numberOfSeats = numberOfSeats;
 
-        setColor(color);
         setEngineVolume(engineVolume);
         setBoxOfTransfers(boxOfTransfers);
         setRegistrationNumber(registrationNumber);
@@ -135,23 +108,8 @@ public class Car {
         setInsurance(insurance);
     }
 
-    public String getBrand() {
-        return brand;
-    }
-    public String getModel() {
-        return model;
-    }
     public double getEngineVolume() {
         return engineVolume;
-    }
-    public String getColor() {
-        return color;
-    }
-    public Integer getProductionYear() {
-        return productionYear;
-    }
-    public String getProductionCountry() {
-        return productionCountry;
     }
     public int getWheels() { return wheels; }
     public String getBodyType() {
@@ -189,13 +147,6 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            this.color = "белый";
-            return;
-        }
-        this.color = color;
-    }
     public void setBoxOfTransfers(String boxOfTransfers) {
         if (boxOfTransfers == null || boxOfTransfers.isEmpty() || boxOfTransfers.isBlank()) {
             this.boxOfTransfers = "default";
@@ -222,20 +173,20 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
-                ", boxOfTransfers='" + boxOfTransfers + '\'' +
-                ", bodyType='" + bodyType + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
-                ", wheels=" + wheels +
-                ", key=" + key +
-                ", insurance=" + insurance +
-                '}';
+        return "Car" + " " +
+                 getBrand() + " " +
+                 getModel() + " " +
+                 engineVolume + " " +
+                 getColor() + " " +
+                 getMaxSpeed() + " " +
+                 getProductionYear() + " " +
+                 getProductionCountry() + " " +
+                 boxOfTransfers + " " +
+                 bodyType + " " +
+                 registrationNumber + " количество сидений " +
+                 numberOfSeats + ", резина " +
+                 wheels + ", " +
+                 key + " " +
+                 insurance;
     }
 }
