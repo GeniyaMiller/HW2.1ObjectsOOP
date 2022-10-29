@@ -1,6 +1,6 @@
 package Transport;
 
-public class Transport {
+public abstract class Transport {
     private String brand;
     private String model;
     private Integer productionYear;
@@ -8,7 +8,9 @@ public class Transport {
     private String color;
     private int maxSpeed;
 
-    public Transport(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed) {
+    private String typeMotor; // 1 - бензин, 2 - дизель, 3 - электрокар
+
+    public Transport(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed, String typeMotor) {
         if (brand == null || brand.isBlank() || brand.isEmpty()) {
             this.brand = "default";
             return;
@@ -32,10 +34,17 @@ public class Transport {
             return;
         }
         this.productionCountry = productionCountry;
+        if (typeMotor == null || typeMotor.isBlank() || typeMotor.isEmpty()){
+            this.typeMotor = "default";
+            return;
+        }
+        this.typeMotor = typeMotor;
 
         setColor(color);
         setMaxSpeed(maxSpeed);
     }
+
+    public abstract void refill(String typeMotor);
 
     public String getBrand() {
         return brand;
@@ -70,5 +79,13 @@ public class Transport {
             return;
         }
         this.maxSpeed = maxSpeed;
+    }
+
+    public String getTypeMotor() {
+        return typeMotor;
+    }
+
+    public void setTypeMotor(String typeMotor) {
+        this.typeMotor = typeMotor;
     }
 }

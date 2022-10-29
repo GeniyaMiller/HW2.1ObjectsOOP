@@ -15,13 +15,17 @@ public class Train extends Transport{
     private String finalStop;
     private int quantityWagons;
 
-    public Train(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed, double ticketPrice, int time, String startStop, String finalStop, int quantityWagons) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+    public Train(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed, double ticketPrice, int time, String startStop, String finalStop, int quantityWagons, String typeMotor) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, typeMotor);
         setFinalStop(finalStop);
         setTime(time);
         setQuantityWagons(quantityWagons);
         setTicketPrice(ticketPrice);
         setStartStop(startStop);
+    }
+    @Override
+    public void refill(String typeMotor) {
+        System.out.println("Автобус " + getBrand() + " следует заправлять дизелем на заправке");
     }
 
     public double getTicketPrice() {
@@ -98,6 +102,8 @@ public class Train extends Transport{
                 ticketPrice + "рублей, время в пути " +
                 time + " минут, отходит от станции " +
                 startStop + ", следует до станции " +
-                finalStop + ",  в поезде " + quantityWagons + " вагонов.";
+                finalStop + ",  в поезде " + quantityWagons + " вагонов, " + "тип мотора " + getTypeMotor();
     }
+
+
 }

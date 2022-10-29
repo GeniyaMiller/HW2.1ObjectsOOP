@@ -3,6 +3,8 @@ package Transport;
 import java.time.LocalDate;
 
 public  class Car extends Transport {
+
+
     public static class Key {
         private boolean remoteEngineStart;
         private boolean keylessAccess;
@@ -60,6 +62,7 @@ public  class Car extends Transport {
 
         }
 
+
         public LocalDate getValidity() {
             return validity;
         }
@@ -85,8 +88,8 @@ public  class Car extends Transport {
     private Insurance insurance;
     public Car(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed,
                double engineVolume, String boxOfTransfers, String bodyType, String registrationNumber,
-               int numberOfSeats, int wheels, Key key, Insurance insurance) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+               int numberOfSeats, int wheels, Key key, Insurance insurance, String   typeMotor) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, typeMotor);
 
         if (bodyType == null || bodyType.isEmpty() || bodyType.isBlank()) {
             this.bodyType = "default";
@@ -106,6 +109,17 @@ public  class Car extends Transport {
         setWheels(wheels);
         setKey(key);
         setInsurance(insurance);
+    }
+
+    @Override
+    public void refill(String typeMotor) {
+        if (typeMotor == "diesel") {
+            System.out.println("Автомобиль " + getBrand() +" следует заправлять дизелем на заправке");
+        } if (typeMotor == "petrol") {
+            System.out.println("Автомобиль " + getBrand() + " следует заправлять бензином на заправке");
+        } if (typeMotor == "electric"){
+            System.out.println("Автомобиль " + getBrand() + " следует заряжать на электрод-парковке");
+        }
     }
 
     public double getEngineVolume() {
@@ -187,6 +201,7 @@ public  class Car extends Transport {
                  numberOfSeats + ", резина " +
                  wheels + ", " +
                  key + " " +
-                 insurance;
+                 insurance + " " +
+                 getTypeMotor();
     }
 }

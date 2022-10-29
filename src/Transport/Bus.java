@@ -2,9 +2,19 @@ package Transport;
 
 public class Bus extends Transport {
 
-    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color, int maxSpeed, String typeMotor) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, typeMotor);
     }
+
+    @Override
+    public void refill(String typeMotor) {
+        if (typeMotor == "diesel") {
+            System.out.println("Автобус " + getBrand() +" следует заправлять дизелем на заправке");
+        } else {
+            System.out.println("Автобус " + getBrand() + " следует заправлять бензином на заправке");
+        }
+    }
+
     @Override
     public String toString() {
         return "Bus" + " " +
@@ -13,7 +23,7 @@ public class Bus extends Transport {
                 getColor() + ", максимальная скорость " +
                 getMaxSpeed() + "км/ч, " +
                 getProductionYear() + " год, производство " +
-                getProductionCountry();
+                getProductionCountry() + ", тип мотора " + getTypeMotor();
     }
 
 }
